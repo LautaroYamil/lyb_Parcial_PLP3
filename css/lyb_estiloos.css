@@ -1,0 +1,240 @@
+/*
+  lyb_estilos.css – Proyecto FoodExpress
+  Autor: Lautaro Yamil Bruera
+  Nivel 4 - Diseño y UX
+  Contiene estilos responsivos, paleta coherente y animaciones suaves.
+*/
+
+/* ====== PALETA DE COLORES ======
+   Rojo oscuro:   #C0392B
+   Naranja:       #E67E22
+   Amarillo suave:#F1C40F
+   Gris claro:    #F8F9F9
+   Gris oscuro:   #2C3E50
+*/
+
+:root {
+  --rojo: #C0392B;
+  --naranja: #E67E22;
+  --amarillo: #F1C40F;
+  --gris: #F8F9F9;
+  --oscuro: #2C3E50;
+  --transicion: all 0.3s ease;
+  --fuente: 'Poppins', sans-serif;
+}
+
+/* ====== RESETEO GENERAL ====== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--fuente);
+}
+
+body {
+  background: var(--gris);
+  color: var(--oscuro);
+  line-height: 1.6;
+}
+
+/* ====== HEADER ====== */
+.lyb-header {
+  background: var(--rojo);
+  color: white;
+  text-align: center;
+  padding: 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.lyb-header h1 {
+  font-size: 2rem;
+  margin-bottom: 0.3rem;
+}
+
+/* ====== MENÚ NAV RESPONSIVE ====== */
+.lyb-nav {
+  display: flex;
+  justify-content: center;
+  background: var(--oscuro);
+}
+
+.lyb-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.lyb-nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transicion);
+}
+
+.lyb-nav a:hover,
+.lyb-nav a:focus {
+  color: var(--amarillo);
+}
+
+/* ====== MENÚ DE PRODUCTOS ====== */
+.lyb-menu {
+  padding: 2rem;
+  text-align: center;
+}
+
+.lyb-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.lyb-card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: var(--transicion);
+}
+
+.lyb-card:hover {
+  transform: translateY(-5px);
+}
+
+.lyb-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.lyb-card h3 {
+  margin: 0.8rem 0 0.4rem;
+}
+
+.lyb-card p {
+  font-size: 0.9rem;
+  color: #555;
+  padding: 0 1rem;
+  min-height: 50px;
+}
+
+.lyb-precio {
+  display: block;
+  font-weight: bold;
+  margin: 0.5rem;
+  color: var(--rojo);
+}
+
+.lyb-btn-agregar {
+  background: var(--naranja);
+  border: none;
+  color: white;
+  padding: 0.6rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: var(--transicion);
+}
+
+.lyb-btn-agregar:hover {
+  background: var(--rojo);
+}
+
+/* ====== CARRITO ====== */
+.lyb-carrito {
+  background: #fff;
+  margin: 2rem;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.lyb-carrito table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+}
+
+.lyb-carrito th,
+.lyb-carrito td {
+  padding: 0.6rem;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.lyb-total {
+  text-align: right;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* ====== CHECKOUT ====== */
+.lyb-checkout {
+  background: var(--oscuro);
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+.lyb-checkout input {
+  padding: 0.7rem;
+  margin: 0.5rem;
+  border: none;
+  border-radius: 5px;
+  width: 90%;
+  max-width: 400px;
+}
+
+.lyb-checkout button {
+  background: var(--amarillo);
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: var(--transicion);
+}
+
+.lyb-checkout button:hover {
+  background: var(--naranja);
+  color: white;
+}
+
+/* ====== TRANSICIONES & FOCUS ====== */
+button:focus,
+input:focus {
+  outline: 2px solid var(--amarillo);
+  outline-offset: 2px;
+  transition: var(--transicion);
+}
+
+/* ====== RESPONSIVE ====== */
+
+/* Tablet (≤ 992px) */
+@media (max-width: 992px) {
+  .lyb-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+  .lyb-header h1 { font-size: 1.8rem; }
+}
+
+/* Mobile (≤ 768px) */
+@media (max-width: 768px) {
+  .lyb-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .lyb-header h1 { font-size: 1.5rem; }
+}
+
+/* Extra Small (≤ 480px) */
+@media (max-width: 480px) {
+  .lyb-grid {
+    grid-template-columns: 1fr;
+  }
+  .lyb-header h1 { font-size: 1.3rem; }
+  .lyb-checkout input { width: 100%; }
+}
+
